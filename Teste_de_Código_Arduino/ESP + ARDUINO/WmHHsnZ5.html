@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+
+  // TODO: Replace with your project's customized code snippet
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: '<your-api-key>',
+      authDomain: '<your-auth-domain>',
+      databaseURL: '<your-database-url>',
+      storageBucket: '<your-storage-bucket>'
+    };
+    firebase.initializeApp(config);
+  </script>
+  
+  <meta charset="utf-8">
+  <title>ESP8266 e Arduino Exemplo de Controle de Pinos</title>
+  <style>
+<!-- edita o paragrafo -->
+  p {
+    color: red;
+    margin: 5px;
+    cursor: pointer;
+  }
+  p:hover {
+    background: yellow;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+	<center>
+		<!-- Titulos -->
+		<h1>Automacao ESP8266 e Arduino</h1>
+		<h2>Controle de Cargas</h2>
+	        
+                <!-- Criar os botoes para cor vermelha --> 
+		<button id="031" class="led">Liga Led 3</button> 
+		<button id="030" class="led">Desliga Led 3</button> 
+                </p>
+		
+		<!-- Criar os botoes para cor verde --> 
+		<button id="121" class="led">Liga Led 12</button> 
+		<button id="120" class="led">Desliga Led 12</button> 
+                </p>
+
+		<!-- Criar os botoes para cor azul --> 
+		<button id="131" class="led">Liga Led 13</button> 
+		<button id="130" class="led">Desliga Led 13</button> 
+                </p>
+		
+
+
+ 	</center>
+
+<script>
+//Quando um botao da Classe led é clicado
+$( ".led" ).click(function() {
+        // grava o valor da id do pin11, pin12, ou pin13
+	var p = $(this).attr('id'); 
+
+	// Envia a requisição via GET para o endereço de IP com o parametro chamado "pin" e valor "p" para executar a função no arduino através do esp8266
+	$.get("http://192.168.0.107:80/", {pin:p}); 
+		
+  
+});
+</script>
+ 
+</body>
+</html>

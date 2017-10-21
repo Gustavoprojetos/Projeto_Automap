@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Automap</title>
+	<script src="jquery-3.2.1.js"></script>
+	<link rel="stylesheet" type="text/css" href="..\Automap01\css\main.css">
+</head>
+<body>
+	<div class="container">
+		<div class="box logo">
+			<img src="..\Automap01\img\Logo.gif">
+		</div>
+
+		<div class="box aside">
+			<ul>
+				<li><a href="#"><img src="..\Automap01\img\download.jpg">Painel Controle</a></li>
+				<li><a href="#">Produtos</a></li>
+				<li><a href="#">Meus Dados</a></li>
+				<li><a href="#">Configuração</a></li>
+			</ul>
+		</div>
+		<div class="box content">
+			<h1>Painel de Controle</h1>
+			<ul>
+				<li>
+					<span>
+						<h3>Andar Superior</h3>
+						<button onClick="window.location.reload();" id="121" class="led">Liga</button>
+						<button onClick="window.location.reload();" id="120" class="led">Desliga</button>
+					</span>
+				</li>
+				<li>
+					<span>
+						<h3>Sala</h3>
+						<button onClick="window.location.reload();" id="541" class="led">Liga</button>
+						<button onClick="window.location.reload();" id="540" class="led">Desliga</button>
+					</span>
+				</li>
+				<li>
+					<span>
+						<h3>Garagem</h3>
+						<button onClick="window.location.reload();" id="111" class="led">Liga</button>
+						<button onClick="window.location.reload();" id="110" class="led">Desliga</button>
+					</span>
+				</li>
+				<li>
+					<span>
+						<h3>Jardim</h3>
+						<button onClick="window.location.reload();" id="091" class="led">Liga</button>
+						<button onClick="window.location.reload();" id="090" class="led">Desliga</button>
+					</span>
+
+		</div>
+		<div class="box footer">
+		 <h5>Copyright © 2017 Automap - Todos os direitos reservados<h5>
+		</div>
+	</div>
+	 <script>
+//Quando um botao da Classe led é clicado
+$( ".led" ).click(function() {
+        // grava o valor da id do pin11, pin12, ou pin13
+	var p = $(this).attr('id');
+
+	// Envia a requisição via GET para168.194.13.126 IP com o parametro chamado "pin" e valor "p" para executar a função no arduino através do esp8266
+	$.get("http://192.168.0.102:8085/", {pin:p});
+
+
+});
+</script>
+</body>
+</html>
